@@ -48,7 +48,11 @@
         .intro-gate{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:24px;background:#0a060a;transition:opacity 1s ease,visibility 1s}.intro-gate:before{content:"";position:absolute;inset:18px;border:1px solid rgba(255,214,138,.24);pointer-events:none}.intro-gate.leave{opacity:0;visibility:hidden}.gate-inner{text-align:center;position:relative;z-index:2}.gate-kicker{display:block;color:var(--gold);font-size:.72rem;letter-spacing:.12em;margin-bottom:18px}.gate-name{font:700 clamp(5rem,20vw,12rem)/1.2 'Aref Ruqaa',serif;color:#ffe9ef;margin:0;text-shadow:0 0 60px rgba(255,71,126,.27)}.gate-line{width:min(280px,70vw);height:1px;margin:8px auto 24px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}.gate-copy{color:var(--muted);margin:0 0 26px}.gate-enter{border:1px solid rgba(255,214,138,.48);background:transparent;color:var(--ink);border-radius:999px;padding:14px 26px;font:700 .95rem Tajawal;cursor:pointer;transition:.3s}.gate-enter:hover{background:var(--gold);color:#241018;transform:translateY(-3px)}body.gate-open{overflow:hidden}
         .chapter-rail{position:fixed;z-index:40;left:22px;top:50%;transform:translateY(-50%);display:grid;gap:13px}.chapter-dot{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:.3s}.chapter-dot.active{background:var(--gold);box-shadow:0 0 0 6px rgba(255,214,138,.09),0 0 15px var(--gold)}
         .section-mark{position:absolute;top:34px;right:clamp(18px,5vw,70px);z-index:3;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.36);font-size:.67rem;letter-spacing:.08em}.section-mark:after{content:"";width:42px;height:1px;background:currentColor}
-        .hero{background:radial-gradient(circle at 50% 48%,rgba(100,25,55,.32),transparent 45%)}.hero .name-stage:before{border-radius:0;inset:15% 8%;transform:rotate(-3deg);border-color:rgba(255,214,138,.2)}.hero h1{font-size:clamp(5.5rem,16vw,10rem)}
+        .hero{isolation:isolate;background:radial-gradient(circle at 50% 48%,rgba(100,25,55,.32),transparent 45%)}.hero .name-stage:before{border-radius:0;inset:15% 8%;transform:rotate(-3deg);border-color:rgba(255,214,138,.2)}.hero h1{font-size:clamp(5.5rem,16vw,10rem)}
+        .hero-video{position:absolute;inset:0;width:100%;height:100%;z-index:0;object-fit:cover;object-position:center;filter:saturate(.78) contrast(1.05);transform:none}
+        .hero-video-shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(8,4,9,.68) 0%,rgba(30,8,20,.42) 42%,rgba(10,5,10,.82) 100%),radial-gradient(circle at 50% 42%,rgba(110,30,62,.06),rgba(7,3,8,.55) 78%)}
+        .hero-video-grain{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(255,143,171,.025),transparent 35%,rgba(255,214,138,.025));mix-blend-mode:screen}
+        .hero>.wrap,.hero>.moon,.hero>.scroll-cue{z-index:3}
         .portrait-scene{background:linear-gradient(145deg,#0e090e,#180c14)}.portrait-frame{padding:12px;border-radius:3px;background:#e7d7ca;box-shadow:22px 24px 0 rgba(255,143,171,.08),-18px -18px 0 rgba(255,214,138,.045),0 40px 90px #000}.portrait-frame img{border-radius:1px;aspect-ratio:3/4}.portrait-badge{bottom:18px;right:18px;transform:none;border-radius:2px;background:rgba(12,7,10,.82);backdrop-filter:blur(10px)}
         .story-chapter .story-text{border-radius:4px;border-color:rgba(255,214,138,.16);background:rgba(9,5,9,.62)}.story-chapter .chapter{filter:drop-shadow(0 8px 24px #000)}
         .moments{gap:22px}.card{border-radius:3px;min-height:290px;position:relative;overflow:hidden}.card:after{content:"";position:absolute;inset:8px;border:1px solid rgba(255,255,255,.07);pointer-events:none}.card:nth-child(2){background:linear-gradient(150deg,rgba(255,214,138,.11),rgba(255,255,255,.02))}
@@ -66,16 +70,125 @@
         .romance-scene{min-height:auto;padding-block:140px;background:linear-gradient(180deg,transparent,rgba(86,20,46,.1),transparent)}.romance-symbol{width:min(560px,88vw);aspect-ratio:1.8;margin:45px auto 30px;position:relative}.romance-symbol svg{width:100%;height:100%;overflow:visible}.romance-symbol path{fill:none;stroke:rgba(255,214,138,.5);stroke-width:1.2;stroke-dasharray:7 9;animation:dashFlow 18s linear infinite}.romance-symbol circle{fill:#ffd68a;filter:drop-shadow(0 0 8px #ffd68a);transform-origin:center;animation:starBreath 2.8s ease-in-out infinite}.romance-symbol circle:nth-of-type(even){fill:#ff8fab;animation-delay:-1.2s}@keyframes dashFlow{to{stroke-dashoffset:-320}}@keyframes starBreath{50%{opacity:.35;transform:scale(.65)}}.romance-quote{max-width:700px;margin:auto;font:700 clamp(1.55rem,4vw,2.45rem)/1.9 'Aref Ruqaa',serif}.romance-quote b{color:var(--rose2)}.tiny-vow{display:inline-flex;gap:9px;align-items:center;margin-top:24px;color:var(--muted);font-size:.9rem}.tiny-vow:before,.tiny-vow:after{content:'♥';color:var(--rose2);font-size:.7rem}
         .love-ticker{overflow:hidden;border-block:1px solid var(--line);padding:15px 0;background:rgba(255,255,255,.018);direction:ltr}.ticker-track{display:flex;width:max-content;gap:55px;white-space:nowrap;color:rgba(255,232,221,.48);font:700 .78rem Tajawal;animation:ticker 28s linear infinite}.ticker-track span:after{content:'✦';margin-left:55px;color:var(--gold)}@keyframes ticker{to{transform:translateX(-50%)}}
         .gate-heart{display:inline-block;color:var(--rose2);animation:heartBeat 1.8s ease-in-out infinite}@keyframes heartBeat{40%{transform:scale(1.22)}55%{transform:scale(.94)}70%{transform:scale(1.1)}}
+        /* Scroll-reactive chapters */
+        main>section{--scene-p:0;--scene-y:0;--scene-glow:rgba(255,71,126,.09)}
+        main>section:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:calc(.14 + var(--scene-p)*.32);background:radial-gradient(circle at 50% calc(28% + var(--scene-p)*38%),var(--scene-glow),transparent 48%);transition:opacity .18s linear}
+        .hero:before{display:none}.portrait-scene{--scene-glow:rgba(255,214,138,.12)}.story-chapter{--scene-glow:rgba(255,143,171,.12)}.love-notes{--scene-glow:rgba(255,214,138,.1)}.journey{--scene-glow:rgba(255,71,126,.1)}.secret{--scene-glow:rgba(255,143,171,.15)}.romance-scene{--scene-glow:rgba(255,214,138,.11)}.final{--scene-glow:rgba(255,71,126,.17)}
+        .story-chapter .chapter-art{transform:translate3d(0,calc(var(--scene-y)*22px),0) scale(1.07);will-change:transform}
+        .portrait-scene.in-view .portrait-badge{box-shadow:0 12px 30px rgba(0,0,0,.35),0 0 calc(12px + var(--scene-p)*25px) rgba(255,143,171,.22)}
+        .moments .icon{transform:translateY(calc(var(--scene-y)*-9px)) scale(calc(.94 + var(--scene-p)*.08));filter:drop-shadow(0 0 calc(var(--scene-p)*12px) rgba(255,214,138,.45));transition:filter .18s linear;will-change:transform}
+        .love-notes .note span{display:inline-block;transform:rotate(calc(var(--scene-y)*8deg)) scale(calc(.92 + var(--scene-p)*.1));will-change:transform}
+        .timeline:before{transform:scaleY(var(--scene-p));transform-origin:top;transition:transform .12s linear}
+        .milestone{opacity:calc(.42 + var(--scene-p)*.58);transform:translateX(calc((1 - var(--scene-p))*18px));transition:opacity .18s linear,transform .18s linear}
+        .secret .envelope-wrap{transform:translateY(calc(var(--scene-y)*-13px));will-change:transform}
+        .secret.in-view .seal{box-shadow:0 7px 15px rgba(86,11,39,.38),0 0 calc(8px + var(--scene-p)*25px) rgba(255,143,171,.5)}
+        .romance-symbol{transform:scale(calc(.94 + var(--scene-p)*.07)) rotate(calc(var(--scene-y)*1.2deg));will-change:transform}
+        .romance-scene.in-view .romance-symbol circle{animation-duration:1.9s}
+        .promise .line-heart{opacity:calc(.45 + var(--scene-p)*.55);transform:scale(calc(.96 + var(--scene-p)*.04));transform-origin:center}
+        .final-card{transform:translateY(calc(var(--scene-y)*-12px));will-change:transform}
         @media(max-width:680px){.cursor-glow{display:none}.romance-scene{padding-block:95px}.romance-symbol{margin-block:25px 20px}.reveal>*{transition-delay:calc(var(--order,0)*55ms)}.ticker-track{animation-duration:22s}}
-        @media(prefers-reduced-motion:reduce){.aurora,.ticker-track,.chapter em,.whisper,.romance-symbol path,.romance-symbol circle,.gate-heart{animation:none!important}.cursor-glow{display:none}.reveal>*{opacity:1!important;transform:none!important}}
+        @media(prefers-reduced-motion:reduce){.aurora,.ticker-track,.chapter em,.whisper,.romance-symbol path,.romance-symbol circle,.gate-heart{animation:none!important}.cursor-glow{display:none}.reveal>*,.chapter-art,.moments .icon,.love-notes .note span,.milestone,.envelope-wrap,.romance-symbol,.line-heart,.final-card{opacity:1!important;transform:none!important}}
+
+        /* Cinematic music player */
+        .music-player{position:fixed;z-index:80;left:22px;bottom:22px;display:flex;align-items:center;gap:12px;padding:8px 14px 8px 8px;border:1px solid rgba(255,214,138,.2);border-radius:999px;background:rgba(13,8,13,.74);backdrop-filter:blur(16px);box-shadow:0 14px 40px rgba(0,0,0,.38);opacity:0;transform:translateY(20px);pointer-events:none;transition:.6s}.music-player.ready{opacity:1;transform:none;pointer-events:auto}.music-toggle{width:46px;height:46px;padding:0;border:1px solid rgba(255,214,138,.35);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 40% 35%,#6e2642,#220e19 68%);color:#fff;cursor:pointer;position:relative;box-shadow:inset 0 0 0 7px rgba(0,0,0,.2)}.music-toggle:after{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}.music-player.playing .music-toggle{animation:vinylSpin 4s linear infinite}@keyframes vinylSpin{to{transform:rotate(360deg)}}.music-info{direction:rtl;text-align:right;min-width:120px}.music-info b{display:block;color:var(--ink);font-size:.75rem}.music-info small{display:block;color:var(--muted);font-size:.64rem;margin-top:2px}.sound-bars{height:18px;display:flex;align-items:end;gap:2px;direction:ltr}.sound-bars i{display:block;width:2px;height:30%;background:var(--rose2);border-radius:4px}.music-player.playing .sound-bars i{animation:soundWave .75s ease-in-out infinite alternate}.music-player.playing .sound-bars i:nth-child(2){animation-delay:-.35s}.music-player.playing .sound-bars i:nth-child(3){animation-delay:-.58s}.music-player.playing .sound-bars i:nth-child(4){animation-delay:-.2s}@keyframes soundWave{to{height:100%}}.music-progress{position:absolute;right:14px;left:62px;bottom:5px;height:1px;background:rgba(255,255,255,.1);overflow:hidden}.music-progress i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--rose),var(--gold));transform:scaleX(0);transform-origin:right}.music-error{color:#ff9cb8!important}
+        @media(max-width:680px){.music-player{left:12px;bottom:max(12px,env(safe-area-inset-bottom));padding-left:7px}.music-toggle{width:42px;height:42px}.music-info{min-width:100px}.music-info b{font-size:.7rem}}
+
+        /* Precise envelope construction */
+        .envelope{isolation:isolate;background:linear-gradient(145deg,#b83f68,#8f294f);overflow:visible}
+        .envelope:before,.envelope:after{inset:0;width:100%;height:100%;border:0}
+        .envelope:before{z-index:4;background:linear-gradient(145deg,#d85b82,#b63d67);clip-path:polygon(0 34%,50% 64%,100% 34%,100% 100%,0 100%)}
+        .envelope:after{z-index:5;background:linear-gradient(160deg,#f08baa,#cf587f);clip-path:polygon(0 0,100% 0,50% 64%);transform-origin:50% 0;backface-visibility:hidden;transition:transform .8s cubic-bezier(.2,.7,.2,1),z-index 0s .35s}
+        .letter{z-index:2;inset:8% 6% 5%;transform:translateY(18%);overflow:hidden;transition:transform .9s .22s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+        .letter b,.letter p{opacity:0;transform:translateY(8px);transition:opacity .3s ease,transform .45s ease}
+        .seal{z-index:7;top:47%}
+        .envelope.open:after{z-index:1;transform:rotateX(180deg)}
+        .envelope.open:before{z-index:4}
+        .envelope.open .letter{z-index:3;transform:translateY(-58%);box-shadow:0 20px 45px rgba(0,0,0,.28)}
+        .envelope.open .letter b,.envelope.open .letter p{opacity:1;transform:none;transition-delay:.52s}
+        .envelope.open .seal{opacity:0;transform:translate(-50%,-50%) scale(0)}
+
+        /* Mobile polish */
+        @media(max-width:680px){
+            body{font-size:16px}
+            section{min-height:auto;padding:88px 20px}
+            .hero{min-height:100svh;padding:72px 20px 145px;display:flex;align-items:center;justify-content:center}
+            .hero .wrap{width:100%;max-width:390px}
+            .hero .eyebrow{margin-bottom:18px;font-size:.72rem}
+            .name-stage{padding:30px 18px 26px}
+            .hero .name-stage:before{inset:12% 2%;transform:rotate(-3deg)}
+            .hero h1{font-size:clamp(4.4rem,24vw,6.3rem);line-height:1.08}
+            .hero h1 span{max-width:280px;margin:15px auto 0;font-size:.9rem;line-height:1.75}
+            .hero p{max-width:330px;margin-top:22px;font-size:1rem;line-height:2}
+            .moon{width:72vw;max-width:290px;left:-38%;top:12%}
+            .scroll-cue{bottom:82px;width:100%;font-size:.7rem}
+            .mouse{width:22px;height:34px;margin-top:7px}
+            .chapter-rail{display:none}
+            .section-mark{top:18px;right:18px;font-size:.61rem}
+            .section-mark:after{width:28px}
+            .wrap{max-width:430px}
+            .chapter{font-size:clamp(2.35rem,11vw,3.6rem);line-height:1.45;margin-bottom:20px}
+            .copy,.story-text p,.portrait-copy p{font-size:1rem;line-height:2}
+            .portrait-scene,.love-notes,.journey,.secret,.romance-scene{padding-block:100px}
+            .portrait-layout{gap:62px}
+            .portrait-frame{width:min(78vw,330px)}
+            .portrait-badge{max-width:90%;padding:10px 17px;font-size:1rem}
+            .story-chapter .wrap{padding-block:8px}
+            .story-chapter .story-text{padding:24px 18px}
+            .story-text{gap:18px}
+            .story-text .turn{font-size:1.45rem;line-height:1.85}
+            .orbit{width:min(72vw,290px);margin-top:38px}
+            .moments{gap:16px;margin-top:32px}
+            .card,.card:nth-child(2){min-height:175px;padding:23px 20px}
+            .notes-grid{margin-top:30px}
+            .note{padding:28px 20px 24px}
+            .note p{font-size:1.25rem}
+            .timeline{margin-top:38px}
+            .milestone{padding-right:58px;padding-bottom:42px}
+            .envelope-wrap{width:min(86vw,380px);margin-top:35px;padding-top:55px}
+            .envelope{aspect-ratio:1.58}
+            .letter{inset:7% 6% 5%;padding:18px 13px 11px}
+            .letter b{font-size:clamp(1.15rem,5vw,1.55rem);margin-bottom:7px}
+            .letter p{font-size:clamp(.76rem,3.15vw,.96rem);line-height:1.65}
+            .envelope.open .letter{transform:translateY(-48%)}
+            .secret-hint{margin-top:24px}
+            .romance-symbol{width:92vw;max-width:400px}
+            .romance-quote{font-size:clamp(1.45rem,7vw,2rem)}
+            .line-heart{width:108vw;margin-inline:-8vw}
+            .final{padding-block:85px 120px}
+            .final-card{padding:45px 22px 50px;border-radius:20px}
+            .final h2{font-size:clamp(2.65rem,12vw,4rem)}
+            .music-player{left:50%;bottom:max(10px,env(safe-area-inset-bottom));width:min(92vw,310px);transform:translate(-50%,20px);justify-content:flex-start;padding:7px 12px 7px 7px;gap:10px;background:rgba(13,8,13,.9)}
+            .music-player.ready{transform:translateX(-50%)}
+            .music-toggle{width:40px;height:40px;flex:0 0 40px}
+            .music-info{min-width:0;flex:1}
+            .music-info b{font-size:.69rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+            .music-info small{font-size:.58rem;white-space:nowrap}
+            .sound-bars{margin-inline-start:auto}
+            .music-progress{right:56px;left:13px}
+        }
+        @media(max-width:380px){
+            .hero{padding-inline:16px}
+            .hero h1{font-size:4.35rem}
+            .hero p{font-size:.94rem}
+            .flourish{width:25px}
+            .music-player{width:calc(100vw - 20px)}
+            .sound-bars{display:none}
+        }
+        @media(max-width:680px) and (orientation:landscape){
+            .hero{min-height:620px;padding-top:65px}
+            .music-player{width:min(54vw,300px)}
+        }
     </style>
 </head>
 <body class="gate-open">
 <div class="intro-gate" id="introGate"><div class="gate-inner"><span class="gate-kicker">هذه الحكاية كُتبت لشخص واحد فقط</span><h1 class="gate-name">اسراء</h1><div class="gate-line"></div><p class="gate-copy">في حاجة صغيرة نفسي تشوفيها بقلبك…</p><button class="gate-enter" id="gateEnter" type="button">افتحي الحكاية <span class="gate-heart">♥</span></button></div></div>
 <nav class="chapter-rail" id="chapterRail" aria-label="فصول الحكاية"></nav>
+<audio id="loveSong" preload="auto" loop><source src="song.mp3" type="audio/mpeg"></audio>
+<div class="music-player" id="musicPlayer"><button class="music-toggle" id="musicToggle" type="button" aria-label="إيقاف أو تشغيل أغنية بينا نعيش"></button><div class="music-info"><b>بينا نعيش ♥</b><small id="musicStatus">عامر منيب — بتغني عشان اسراء</small></div><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="music-progress"><i id="musicProgress"></i></span></div>
 <div class="aurora"></div><div class="cursor-glow" id="cursorGlow"></div><div class="noise"></div><div id="stars"></div><div class="petals" id="petals"></div><div class="progress"><i id="progress"></i></div>
 <main>
     <section class="hero">
+        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="romantic-turkish-background.png" aria-hidden="true"><source src="romantic-turkish-mobile.mp4" type="video/mp4" media="(max-width:680px)"><source src="romantic-turkish-desktop.mp4" type="video/mp4"></video><div class="hero-video-shade"></div><div class="hero-video-grain"></div>
         <div class="moon" data-speed="-.08"></div>
         <div class="wrap reveal"><div class="eyebrow">حكاية صغيرة بطلتها اسراء</div><div class="name-stage"><i class="flourish right"></i><h1><strong class="name">اسراء</strong><span>الاسم اللي غيّر معنى كل حاجة حلوة</span></h1><i class="flourish left"></i></div><p>يا اسراء، يا أجمل صدفة وأحن قلب… خدي نفس عميق، وانزلي بالراحة. كل خطوة لتحت فيها حتة من اللي جوا قلبي.</p></div>
         <div class="scroll-cue">انزلي عشان تبدأ الحكاية<div class="mouse"></div></div>
@@ -93,13 +206,18 @@
 </main>
 <script>
 (()=>{const stars=document.querySelector('#stars'),petals=document.querySelector('#petals');for(let i=0;i<70;i++){const s=document.createElement('i');s.className='star';s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;animation-delay:${-Math.random()*5}s`;stars.append(s)}for(let i=0;i<13;i++){const p=document.createElement('span');p.className='petal';p.textContent=i%3?'♥':'✦';p.style.cssText=`left:${Math.random()*100}%;--s:${10+Math.random()*13}px;--d:${9+Math.random()*9}s;--delay:${-Math.random()*18}s;--x:${-80+Math.random()*160}px`;petals.append(p)}
-const gate=document.querySelector('#introGate'),enter=document.querySelector('#gateEnter');enter.addEventListener('click',()=>{gate.classList.add('leave');document.body.classList.remove('gate-open');setTimeout(()=>gate.remove(),1100)});
+const gate=document.querySelector('#introGate'),enter=document.querySelector('#gateEnter'),song=document.querySelector('#loveSong'),musicPlayer=document.querySelector('#musicPlayer'),musicToggle=document.querySelector('#musicToggle'),musicStatus=document.querySelector('#musicStatus'),musicProgress=document.querySelector('#musicProgress');
+const heroVideo=document.querySelector('#heroVideo');if(matchMedia('(prefers-reduced-motion:reduce)').matches){heroVideo?.pause();heroVideo?.removeAttribute('autoplay')}else{heroVideo?.play().catch(()=>{})}
+let volumeFade=null;function setMusicState(playing){musicPlayer.classList.toggle('playing',playing);musicStatus.textContent=playing?'عامر منيب — بتغني عشان اسراء':'الأغنية واقفة لحظة'}function fadeMusicIn(){clearInterval(volumeFade);song.volume=0;const playPromise=song.play();if(playPromise){playPromise.then(()=>{musicPlayer.classList.add('ready');setMusicState(true);volumeFade=setInterval(()=>{song.volume=Math.min(.72,song.volume+.04);if(song.volume>=.72)clearInterval(volumeFade)},110)}).catch(()=>{musicPlayer.classList.add('ready');musicStatus.textContent='تعذّر تشغيل أغنية بينا نعيش';musicStatus.classList.add('music-error')})}}
+enter.addEventListener('click',()=>{gate.classList.add('leave');document.body.classList.remove('gate-open');fadeMusicIn();setTimeout(()=>gate.remove(),1100)});
+musicToggle.addEventListener('click',()=>{if(song.paused){song.play().then(()=>setMusicState(true)).catch(()=>{musicStatus.textContent='تعذّر تشغيل ملف الأغنية';musicStatus.classList.add('music-error')})}else{song.pause();setMusicState(false)}});song.addEventListener('timeupdate',()=>{const value=song.duration?Math.min(1,song.currentTime/song.duration):0;musicProgress.style.transform=`scaleX(${value})`});song.addEventListener('error',()=>{musicPlayer.classList.add('ready');musicStatus.textContent='تعذّر تحميل أغنية بينا نعيش';musicStatus.classList.add('music-error')});
 const sections=[...document.querySelectorAll('main>section')],rail=document.querySelector('#chapterRail');sections.forEach((section,index)=>{const mark=document.createElement('span');mark.className='section-mark';mark.textContent=String(index+1).padStart(2,'0');section.append(mark);const dot=document.createElement('button');dot.className='chapter-dot';dot.type='button';dot.setAttribute('aria-label','اذهبي إلى الفصل '+(index+1));dot.addEventListener('click',()=>section.scrollIntoView({behavior:'smooth'}));rail.append(dot)});const dots=[...rail.children];
 const sectionObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){const index=sections.indexOf(entry.target);dots.forEach((dot,i)=>dot.classList.toggle('active',i===index))}}),{threshold:.52});sections.forEach(section=>sectionObserver.observe(section));
+const motionOff=matchMedia('(prefers-reduced-motion:reduce)').matches;const sceneObserver=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('in-view',entry.isIntersecting)),{rootMargin:'12% 0px 12%',threshold:0});sections.forEach(section=>sceneObserver.observe(section));function updateSceneMotion(){if(motionOff)return;sections.forEach(section=>{if(!section.classList.contains('in-view'))return;const rect=section.getBoundingClientRect(),travel=innerHeight+rect.height,progress=Math.max(0,Math.min(1,(innerHeight-rect.top)/travel)),center=(rect.top+rect.height/2-innerHeight/2)/(travel/2);section.style.setProperty('--scene-p',progress.toFixed(3));section.style.setProperty('--scene-y',Math.max(-1,Math.min(1,center)).toFixed(3))})}updateSceneMotion();
 document.querySelectorAll('.reveal').forEach(group=>[...group.children].forEach((child,index)=>child.style.setProperty('--order',Math.min(index,7))));
 const finePointer=matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches;if(finePointer){const glow=document.querySelector('#cursorGlow');addEventListener('pointermove',event=>{glow.style.left=event.clientX+'px';glow.style.top=event.clientY+'px';glow.classList.add('show')},{passive:true});document.documentElement.addEventListener('mouseleave',()=>glow.classList.remove('show'))}
 const items=document.querySelectorAll('.reveal');const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('seen')}),{threshold:.18});items.forEach(x=>io.observe(x));
-const bar=document.querySelector('#progress'),portrait=document.querySelector('.portrait-frame');let ticking=false;addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{const max=document.documentElement.scrollHeight-innerHeight;bar.style.transform=`scaleX(${max?scrollY/max:0})`;document.querySelectorAll('[data-speed]').forEach(el=>el.style.transform=`translateY(${scrollY*Number(el.dataset.speed)}px)`);if(portrait&&innerWidth>680&&!matchMedia('(prefers-reduced-motion:reduce)').matches){const rect=portrait.getBoundingClientRect(),offset=Math.max(-10,Math.min(10,(innerHeight/2-(rect.top+rect.height/2))*.025));portrait.style.transform=`translateY(${offset}px)`}ticking=false});ticking=true}},{passive:true});
+const bar=document.querySelector('#progress'),portrait=document.querySelector('.portrait-frame');let ticking=false;addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{const max=document.documentElement.scrollHeight-innerHeight;bar.style.transform=`scaleX(${max?scrollY/max:0})`;document.querySelectorAll('[data-speed]').forEach(el=>el.style.transform=`translateY(${scrollY*Number(el.dataset.speed)}px)`);if(portrait&&innerWidth>680&&!motionOff){const rect=portrait.getBoundingClientRect(),offset=Math.max(-10,Math.min(10,(innerHeight/2-(rect.top+rect.height/2))*.025));portrait.style.transform=`translateY(${offset}px)`}updateSceneMotion();ticking=false});ticking=true}},{passive:true});
 const envelope=document.querySelector('#envelope');envelope.addEventListener('click',()=>{const open=envelope.classList.toggle('open');envelope.setAttribute('aria-expanded',String(open));document.querySelector('#secretHint').textContent=open?'الجواب ده ليكي إنتِ وبس ♥':'المسي القلب وافتحي الجواب';if(open){const r=envelope.getBoundingClientRect();for(let i=0;i<16;i++){const h=document.createElement('span');h.className='pop-heart';h.textContent='♥';h.style.cssText=`left:${r.left+r.width/2}px;top:${r.top+r.height/2}px;color:${i%2?'#ff477e':'#ffd68a'};font-size:${10+Math.random()*15}px;--dx:${-120+Math.random()*240}px;--dy:${-50-Math.random()*180}px;--r:${-90+Math.random()*180}deg`;document.body.append(h);setTimeout(()=>h.remove(),1700)}}});
 document.querySelector('#burst').addEventListener('click',e=>{const r=e.currentTarget.getBoundingClientRect();for(let i=0;i<42;i++){const h=document.createElement('span');h.className='pop-heart';h.textContent=i%4?'♥':'✨';h.style.cssText=`left:${r.left+r.width/2}px;top:${r.top}px;color:${i%2?'#ff477e':'#ffd68a'};font-size:${12+Math.random()*24}px;--dx:${-180+Math.random()*360}px;--dy:${-80-Math.random()*420}px;--r:${-180+Math.random()*360}deg`;document.body.append(h);setTimeout(()=>h.remove(),1700)}e.currentTarget.textContent='وبحبك كل يوم أكتر يا اسراء ♥'});})();
 </script>
