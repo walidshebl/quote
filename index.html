@@ -1,32 +1,3 @@
-<?php
-declare(strict_types=1);
-
-$photoDirectory = __DIR__ . '/assets/love/photos';
-$photoFiles = [];
-foreach (['jpg', 'jpeg', 'png', 'webp', 'avif'] as $extension) {
-    $photoFiles = array_merge($photoFiles, glob($photoDirectory . '/*.' . $extension, GLOB_NOSORT) ?: []);
-    $photoFiles = array_merge($photoFiles, glob($photoDirectory . '/*.' . strtoupper($extension), GLOB_NOSORT) ?: []);
-}
-sort($photoFiles, SORT_NATURAL | SORT_FLAG_CASE);
-$photos = array_map(
-    static fn(string $file): string => 'assets/love/photos/' . rawurlencode(basename($file)),
-    array_values(array_unique($photoFiles))
-);
-
-function love_photo(array $photos, int $index): string
-{
-    if (!$photos) {
-        return '';
-    }
-    return $photos[$index % count($photos)];
-}
-
-function love_photo_style(array $photos, int $index): string
-{
-    $photo = love_photo($photos, $index);
-    return $photo !== '' ? '--photo:url(\'' . htmlspecialchars($photo, ENT_QUOTES, 'UTF-8') . '\')' : '';
-}
-?>
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
@@ -75,19 +46,18 @@ function love_photo_style(array $photos, int $index): string
 <body>
 <div class="noise"></div><div id="stars"></div><div class="petals" id="petals"></div><div class="progress"><i id="progress"></i></div>
 <main>
-    <section class="hero<?= $photos ? ' photo-scene' : '' ?>" style="<?= love_photo_style($photos, 0) ?>">
+    <section class="hero">
         <div class="moon" data-speed="-.08"></div>
         <div class="wrap reveal"><div class="eyebrow">حكاية صغيرة بطلتها اسراء</div><div class="name-stage"><i class="flourish right"></i><h1><strong class="name">اسراء</strong><span>الاسم اللي غيّر معنى كل حاجة حلوة</span></h1><i class="flourish left"></i></div><p>يا اسراء، يا أجمل صدفة وأحن قلب… خدي نفس عميق، وانزلي بالراحة. كل خطوة لتحت فيها حتة من اللي جوا قلبي.</p></div>
         <div class="scroll-cue">انزلي عشان تبدأ الحكاية<div class="mouse"></div></div>
     </section>
     <section class="portrait-scene"><div class="wrap reveal"><div class="portrait-layout"><figure class="portrait-frame"><img src="esraa-portrait.png" alt="اسراء — أجمل صدفة" decoding="async"><figcaption class="portrait-badge">اسراء… صاحبة الحكاية ♥</figcaption></figure><div class="portrait-copy"><div class="eyebrow">هي دي اللي خطفت قلبي</div><h2 class="chapter">مش مجرد صورة…<br><em>دي أجمل واحدة شافتها عيني</em></h2><p>في ملامحك يا اسراء حاجة بتطمن القلب، وفي ضحكتك نور بيغيّر شكل اليوم كله. مهما شوفت وجوه، عيني دايماً هتختارك إنتِ.</p><span class="whisper">«كل الحلو في عيني… بدأ منك»</span></div></div></div></section>
-    <section class="story-chapter<?= $photos ? ' photo-scene' : '' ?>" style="<?= love_photo_style($photos, 1) ?>"><?php if (!$photos): ?><div class="chapter-art"></div><?php endif; ?><div class="wrap reveal"><div class="eyebrow">الفصل الأول — بداية الحكاية</div><div class="year">2021</div><h2 class="chapter">النظرة اللي…<br><em>غيّرت كل شيء</em></h2><div class="story-text"><p>كان يوم عادي من أيام سنة 2021… أو على الأقل، ده اللي كنت فاكره.</p><p>شوفت اسراء ماشية قدامي، وفجأة وسط كل الناس عيني اختارتها هي. للحظة، كل حاجة حواليّا هديت… وكأن قلبي عرفها قبل حتى ما أعرفها.</p><p class="turn">في اللحظة دي، قلبي اتخطف.</p><p>مكنتش أعرف إن النظرة الصغيرة دي هتبقى أول سطر في أجمل حكاية في حياتي. كل اللي عرفته وقتها إني اتشدّيت ليها بطريقة مختلفة.</p><p>وبعدها جمعتنا مواقف كتير… وكل مرة كنت بشوفها فيها، كنت بتشدّ ليها أكتر. ومع كل لقاء، كانت اسراء بتاخد مكان أكبر جوا قلبي، بهدوء ومن غير ما أحس.</p><p class="turn">لحد ما بقت مش مجرد بنت شوفتها بالصدفة…<br>بقت الصدفة اللي غيّرت حياتي كلها. ♥</p></div><div class="orbit"><span class="heart">♥</span><span class="word w1">أول نظرة</span><span class="word w2">اسراء</span><span class="word w3">2021</span><span class="word w4">بداية الحكاية</span></div></div></section>
+    <section class="story-chapter"><div class="chapter-art"></div><div class="wrap reveal"><div class="eyebrow">الفصل الأول — بداية الحكاية</div><div class="year">2021</div><h2 class="chapter">النظرة اللي…<br><em>غيّرت كل شيء</em></h2><div class="story-text"><p>كان يوم عادي من أيام سنة 2021… أو على الأقل، ده اللي كنت فاكره.</p><p>شوفت اسراء ماشية قدامي، وفجأة وسط كل الناس عيني اختارتها هي. للحظة، كل حاجة حواليّا هديت… وكأن قلبي عرفها قبل حتى ما أعرفها.</p><p class="turn">في اللحظة دي، قلبي اتخطف.</p><p>مكنتش أعرف إن النظرة الصغيرة دي هتبقى أول سطر في أجمل حكاية في حياتي. كل اللي عرفته وقتها إني اتشدّيت ليها بطريقة مختلفة.</p><p>وبعدها جمعتنا مواقف كتير… وكل مرة كنت بشوفها فيها، كنت بتشدّ ليها أكتر. ومع كل لقاء، كانت اسراء بتاخد مكان أكبر جوا قلبي، بهدوء ومن غير ما أحس.</p><p class="turn">لحد ما بقت مش مجرد بنت شوفتها بالصدفة…<br>بقت الصدفة اللي غيّرت حياتي كلها. ♥</p></div><div class="orbit"><span class="heart">♥</span><span class="word w1">أول نظرة</span><span class="word w2">اسراء</span><span class="word w3">2021</span><span class="word w4">بداية الحكاية</span></div></div></section>
     <section><div class="wrap reveal"><div class="eyebrow">حاجات بحبها فيكي يا اسراء</div><h2 class="chapter">مش حاجة واحدة…<br><em>دي ألف حكاية</em></h2><div class="moments"><article class="card"><span class="icon">☀️</span><b>نورك يا اسراء</b><small>الطريقة اللي بتخلّي بيها حتى الأيام التقيلة أخف.</small></article><article class="card"><span class="icon">✨</span><b>روحك</b><small>طيبتك، حنيتك، وكل حاجة صادقة وجميلة جواكي.</small></article><article class="card"><span class="icon">🌙</span><b>أمانك</b><small>إحساس البيت اللي بلاقيه معاكي في أي مكان.</small></article></div></div></section>
     <section class="love-notes"><div class="wrap reveal"><div class="eyebrow">رسائل صغيرة إلى اسراء</div><h2 class="chapter">لو للحب كلام…<br><em>فكل كلامي ليكي يا اسراء</em></h2><div class="notes-grid"><article class="note"><span>✦</span><p>اسراء… إنتِ الحاجة الحلوة اللي حصلت من غير ترتيب، وبقت أهم من كل الترتيبات.</p></article><article class="note"><span>♥</span><p>يا اسراء، في عيونك لقيت هدوء يشبه البيت، وفي وجودك لقيت قلبي على حقيقته.</p></article><article class="note"><span>☾</span><p>ولو رجع بيا الزمن لنفس اللحظة، هختارك يا اسراء من وسط كل الناس… كل مرة.</p></article></div><div class="constellation"><i></i><i></i><i></i></div></div></section>
     <section class="journey"><div class="wrap reveal"><div class="eyebrow">رحلة القلب</div><h2 class="chapter">كل خطوة قربتنا…<br><em>كانت بتكتب قدرنا</em></h2><div class="timeline"><article class="milestone"><i>✦</i><time>2021</time><h3>أول نظرة</h3><p>لحظة عابرة في عيون الناس، لكنها كانت بداية عمر كامل في قلبي.</p></article><article class="milestone"><i>♥</i><time>بعدها</time><h3>مواقف جمعتنا</h3><p>كل لقاء كان يقربني منك، وكل موقف كان يقول لقلبي إنك مختلفة.</p></article><article class="milestone future"><i>∞</i><time>دلوقتي وبكرة</time><h3>حكايتنا مستمرة</h3><p>لسه عندنا فصول كتير نعيشها ونكتبها سوا… وأجملها لسه جاي.</p></article></div></div></section>
     <section class="secret"><div class="wrap reveal"><div class="eyebrow">في حاجة أخيرة مستخبية</div><h2 class="chapter">جواب صغير…<br><em>لصاحبة قلبي</em></h2><div class="envelope-wrap"><button class="envelope" id="envelope" type="button" aria-expanded="false" aria-label="افتحي الجواب"><span class="letter"><b>إلى اسراء ♥</b><p>وجودك في حياتي مش مجرد صدفة حلوة… إنتِ الدعوة اللي قلبي كان بيتمناها من غير ما يعرف يقولها.</p></span><span class="seal">♥</span></button></div><p class="secret-hint" id="secretHint">المسي القلب وافتحي الجواب</p></div></section>
-    <?php if ($photos): ?><section><div class="wrap reveal"><div class="eyebrow">ألبومنا الصغير</div><h2 class="chapter">كل صورة لينا…<br><em>وراها حكاية بحبها</em></h2><div class="gallery"><?php foreach ($photos as $index => $photo): ?><figure class="memory" style="--tilt:<?= [-7, 5, -3, 8][$index % 4] ?>deg;--lift:<?= [14, -12, 5, -5][$index % 4] ?>px"><img src="<?= htmlspecialchars($photo, ENT_QUOTES, 'UTF-8') ?>" alt="ذكرى جميلة <?= $index + 1 ?>" loading="lazy" decoding="async"></figure><?php endforeach; ?></div></div></section><?php endif; ?>
-    <section class="promise reveal<?= $photos ? ' photo-scene' : '' ?>" style="<?= love_photo_style($photos, 2) ?>"><div class="wrap"><div class="eyebrow">وعد من قلبي</div><h2 class="chapter">هفضل أختاركِ…<br><em>كل يوم، وكل مرة</em></h2><svg class="line-heart" viewBox="0 0 800 230" aria-hidden="true"><defs><linearGradient id="heartGradient"><stop stop-color="#ff477e"/><stop offset="1" stop-color="#ffd68a"/></linearGradient></defs><path d="M5 125h145l24-55 36 112 42-96 28 39h72c17-91 145-104 145 3 0-107 128-94 145-3 0 72-145 150-145 150s-145-78-145-150h-72l-21 47-39-91-43 101-35-57H5"/></svg><p class="copy">أشاركك الضحك قبل الفرح، وأمسك إيدك وقت الزعل، ونفضل نبني سوا حكاية شبهنا… بسيطة، حقيقية، ومليانة حب.</p></div></section>
+    <section class="promise reveal"><div class="wrap"><div class="eyebrow">وعد من قلبي</div><h2 class="chapter">هفضل أختاركِ…<br><em>كل يوم، وكل مرة</em></h2><svg class="line-heart" viewBox="0 0 800 230" aria-hidden="true"><defs><linearGradient id="heartGradient"><stop stop-color="#ff477e"/><stop offset="1" stop-color="#ffd68a"/></linearGradient></defs><path d="M5 125h145l24-55 36 112 42-96 28 39h72c17-91 145-104 145 3 0-107 128-94 145-3 0 72-145 150-145 150s-145-78-145-150h-72l-21 47-39-91-43 101-35-57H5"/></svg><p class="copy">أشاركك الضحك قبل الفرح، وأمسك إيدك وقت الزعل، ونفضل نبني سوا حكاية شبهنا… بسيطة، حقيقية، ومليانة حب.</p></div></section>
     <section class="final"><div class="wrap reveal final-card"><span class="ring">💍</span><div class="eyebrow">المفاجأة الحقيقية يا اسراء</div><h2>إن أجمل أيامنا<br>لسه ماجتش</h2><p class="copy">يا اسراء، إنتِ مش بس حب عمري… إنتِ اختياري، وصاحبتي، والبيت اللي نفسي أكمل فيه كل العمر.</p><div class="chick-love"><img src="assets/love/chick-heart.png" alt="كتكوت صغير بيقدم قلب لاسراء" loading="lazy" decoding="async"></div><div class="signature">بحبك يا اسراء ♥</div><button class="burst" id="burst" type="button">دوسي هنا يا اسراء</button></div></section>
 </main>
 <script>
